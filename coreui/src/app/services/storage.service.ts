@@ -22,4 +22,14 @@ export class StorageService {
       return JSON.parse(user);
     }
   }
+  public getToken():string {
+    const stringifyUser:any = window.sessionStorage.getItem('auth');
+    if(stringifyUser){
+      const user = JSON.parse(stringifyUser);
+      const token = user.token;
+      return token;
+    }else{
+      return "";
+    }
+  }
 }

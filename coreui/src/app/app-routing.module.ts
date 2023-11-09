@@ -28,6 +28,12 @@ const routes: Routes = [
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
+        path: 'card',
+        canActivate: [AuthGuardService],
+        loadChildren: () =>
+          import('./views/cards/cards.module').then((m) => m.CardsModule)
+      },
+      {
         path: 'theme',
         loadChildren: () =>
           import('./views/theme/theme.module').then((m) => m.ThemeModule)

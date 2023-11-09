@@ -12,6 +12,25 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
+    name: 'Cards'
+  },
+  {
+    name: 'Cards',
+    url: '/card',
+    iconComponent: { name: 'cil-puzzle' },
+    children: [
+      {
+        name: 'Add',
+        url: '/card/add'
+      },
+      {
+        name: 'List',
+        url: '/card/list'
+      }
+    ]
+  },
+  {
+    title: true,
     name: 'Theme'
   },
   {

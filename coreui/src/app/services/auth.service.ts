@@ -41,4 +41,7 @@ export class AuthService {
       return false
     }
   }
+  fetchExample():Observable<any>{
+    return this.http.get(AUTH_API+'health',httpOptions);
+  }
 }

@@ -38,7 +38,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { HttpClientModule } from '@angular/common/http';
-
+import { httpInterceptorProviders } from '../app/helpers/token.interceptor'
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
@@ -82,7 +82,8 @@ const APP_CONTAINERS = [
       useClass: HashLocationStrategy
     },
     IconSetService,
-    Title
+    Title,
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

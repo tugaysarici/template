@@ -30,7 +30,7 @@ export class LoginComponent {
         this.router.navigate(['/dashboard'])
       },
       error: err => {
-        console.log('error')
+        console.log('error',err)
       }
     })
     //this.authService.login();
