@@ -32,6 +32,7 @@ import {
   ProgressModule,
   SharedModule,
   SidebarModule,
+  SpinnerModule,
   TabsModule,
   UtilitiesModule
 } from '@coreui/angular';
@@ -40,6 +41,7 @@ import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from '../app/helpers/token.interceptor'
 import { ToastrModule } from 'ngx-toastr';
+import { SpinnerComponent } from './views/spinner/spinner.component';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
@@ -47,7 +49,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS],
+  declarations: [AppComponent, ...APP_CONTAINERS, SpinnerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -76,7 +78,8 @@ const APP_CONTAINERS = [
     CardModule,
     NgScrollbarModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SpinnerModule
   ],
   providers: [
     {

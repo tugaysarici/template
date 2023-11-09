@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ButtonModule,
     FormModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class CardsModule { }

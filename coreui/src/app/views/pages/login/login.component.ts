@@ -33,7 +33,7 @@ export class LoginComponent {
       },
       error: err => {
         console.log('berkay',err.error.message)
-        this.toastr.error(err.error.message, 'Error');
+        this.toastr.error (err.error.message, 'Error');
       }
     })
     //this.authService.login();

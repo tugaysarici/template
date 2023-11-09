@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CardService } from 'src/app/services/card.service';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit',
@@ -9,7 +11,7 @@ import { CardService } from 'src/app/services/card.service';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  cardId:number = 1;
+  cardId!:number
   cardForm = new FormGroup({
     cardHolder: new FormControl(''),
     cardNumber: new FormControl(''),
@@ -21,13 +23,15 @@ export class EditComponent implements OnInit {
     private router:Router,
     private route: ActivatedRoute
     ){
-
+      const id: string = route.snapshot.params['id'];
+      this.cardId = parseInt(id)
   }
-  ngOnInit(): void {
-    this.load();  
+  ngOnInit(): void { 
+    this.load();
   }
 
   load(){
+    console.log(this.cardId,'cardID');
     this.cardService.getById(this.cardId).subscribe((response:any) => {
       console.log(response.data.id)
       this.cardForm.controls['cardHolder'].setValue(response.data.cardHolder)
