@@ -1,8 +1,8 @@
-<c-card class="mb-4">
+<c-card *ngIf="data.length > 0" class="mb-4">
     <c-card-header>
       <strong>Card List</strong>
     </c-card-header>
-    <c-card-body>
+    <c-card-body >
         <table cTable>
           <thead>
           <tr>
@@ -10,25 +10,18 @@
             <th scope="col">Card Holder</th>
             <th scope="col">Card Number</th>
             <th scope="col">cvv</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor="let d of data;">
+            <th scope="row">{{ d.id }}</th>
+            <td>{{d.cardNumber}}</td>
+            <td>{{d.cardHolder}}</td>
+            <td>{{d.cvv}}</td>
+            <td><a routerLink="/card/edit/{{d.id}}" >edit</a></td>
+            <td><a (click)="isDelete()">x</a></td>
           </tr>
           </tbody>
         </table>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { CardService } from '../../../services/card.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -14,9 +16,20 @@ export class AddComponent {
     cvv: new FormControl(''),
     expenseLimit: new FormControl('')
   })
+
+  constructor(private cardService:CardService,private router:Router){
+
+  }
   onSubmit(){
-    console.log(this.cardForm.value);
-    console.log('work');
+    this.cardService.add(this.cardForm.value).subscribe({
+      next: data =>{
+        console.log(data);
+        this.router.navigate(['/card/list'])
+      },
+      error: err =>{
+        console.log(err,'error')
+      }
+    })
   }
 }
 

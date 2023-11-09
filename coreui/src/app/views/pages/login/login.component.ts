@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service'
 import { Router } from '@angular/router'
 import { StorageService } from 'src/app/services/storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,9 +19,10 @@ export class LoginComponent {
   constructor(
     private authService:AuthService,
     private router:Router,
-    private storage:StorageService
+    private storage:StorageService,
+    private toastr: ToastrService
   ) { 
-
+    
   }
   onSubmit(){
     const { telephone,pin } = this.loginForm.value
@@ -30,7 +32,8 @@ export class LoginComponent {
         this.router.navigate(['/dashboard'])
       },
       error: err => {
-        console.log('error',err)
+        console.log('berkay',err.error.message)
+        this.toastr.error(err.error.message, 'Error');
       }
     })
     //this.authService.login();

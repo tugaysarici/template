@@ -9,7 +9,7 @@
           <input cFormControl
                  id="exampleFormControlInput1"
                  placeholder="Berkay Oflaz"
-                 type="email"
+                 type="text"
                  formControlName="cardHolder"
           />
         </div>
@@ -18,7 +18,7 @@
           <input cFormControl
                  id="exampleFormControlTextarea1"
                  placeholder="xxxx-xxx-xxxx-xxxx"
-                 type="text"
+                 type="number"
                  formControlName="cardNumber"
           />
         </div>
@@ -36,11 +36,11 @@
             <input cFormControl
                    id="exampleFormControlTextarea3"
                    placeholder=""
-                   type="text"
+                   type="number"
                    formControlName="expenseLimit"
             />
         </div>
-        <button cButton class="mt-3" color="primary" routerLink="/register">
+        <button cButton (click)="onSubmit()" class="mt-3" color="primary">
             Save
         </button>
     </form>
