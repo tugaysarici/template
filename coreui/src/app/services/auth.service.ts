@@ -13,7 +13,10 @@ const httpOptions = {
 
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private storage:StorageService
+  ) { }
 
   register(){
     console.log('register')
@@ -24,5 +27,18 @@ export class AuthService {
       telephone,
       pin
     },httpOptions);
+  }
+  logOut(){
+    this.storage.clean();
+    window.location.href = '/#/login'
+  }
+
+  isLoggin(){
+    let user = this.storage.getUser();
+    if(user){
+      return true
+    }else{
+      return false
+    }
   }
 }

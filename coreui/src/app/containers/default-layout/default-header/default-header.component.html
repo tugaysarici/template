@@ -74,7 +74,7 @@
         status="success"
       >
         </c-avatar>
-     <!-- <c-avatar color="primary" textColor="white">CUI</c-avatar> -->
+     <!-- <c-avatar color="primary" textColor="white">{{user.name[0}]}}</c-avatar> -->
       
     </button>
     <ul cDropdownMenu class="pt-0 pr-5 w-auto">
@@ -155,7 +155,7 @@
         <hr cDropdownDivider/>
       </li>
       <li>
-        <a routerLink="./" cDropdownItem>
+        <a routerLink="#" (click)="signOut()" cDropdownItem>
           <svg cIcon class="me-2" name="cilLockLocked"></svg>
           Lock Account
         </a>
